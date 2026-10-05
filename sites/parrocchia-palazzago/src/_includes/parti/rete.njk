@@ -1,0 +1,6 @@
+<ul class="rete">
+  {% if sito.social.newsletter %}<li><a href="{{ sito.social.newsletter }}">NewsLetteRina via email</a></li>{% else %}<li><a href="/contatti/#rete">NewsLetteRina via email</a></li>{% endif %}
+  {% if sito.social.whatsapp %}<li><a href="{{ sito.social.whatsapp }}">Canale WhatsApp</a></li>{% endif %}
+  {% if sito.social.telegram %}<li><a href="{{ sito.social.telegram }}">Canale Telegram</a></li>{% endif %}
+  {% if sito.social.instagram %}<li><a href="{{ sito.social.instagram }}">Instagram</a></li>{% endif %}
+</ul>

@@ -1,0 +1,13 @@
+---
+title: Le nostre chiese
+descrizione: Dove si celebra, a che ora, e cosa custodisce ogni chiesa.
+---
+<ul class="elenco-voci">
+  {%- for c in chiese.elenco %}
+  <li>
+    <h3><a href="/parrocchia/chiese/{{ c.slug }}/">{{ c.nome }}</a></h3>
+    <p class="dettaglio">{{ c.localita }} · {{ c.breve }}</p>
+    {% if c.messe %}<p>Messe: {{ c.messe }}</p>{% endif %}
+  </li>
+  {%- endfor %}
+</ul>

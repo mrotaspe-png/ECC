@@ -1,0 +1,29 @@
+---
+title: Richiesta certificati
+descrizione: Battesimo, cresima, idoneità a fare da padrino o madrina. Compila la richiesta e ti avvisiamo quando è pronto.
+---
+<p>I certificati si rilasciano per i sacramenti celebrati nella nostra parrocchia. Se il sacramento è stato celebrato altrove, bisogna chiederlo a quella parrocchia.</p>
+<p>Il certificato di <strong>idoneità a fare da padrino o madrina</strong> lo rilascia il parroco dopo un breve colloquio.</p>
+
+<form class="modulo" data-modulo="Richiesta certificato" data-endpoint="{{ sito.moduli.endpoint }}" data-email="{{ sito.moduli.emailRiserva }}"
+  data-grazie="Richiesta ricevuta. Ti avviseremo quando il certificato è pronto.">
+  <p class="campo">
+    <label for="tipo">Che certificato serve</label>
+    <select id="tipo" name="tipo" required>
+      <option value="">Scegli…</option>
+      <option>Battesimo</option>
+      <option>Cresima</option>
+      <option>Prima Comunione</option>
+      <option>Matrimonio</option>
+      <option>Idoneità padrino / madrina</option>
+      <option>Altro</option>
+    </select>
+  </p>
+  <div class="campi-due">
+    <p class="campo"><label for="intestatario">Intestato a <span class="aiuto">Nome e cognome di chi ha ricevuto il sacramento</span></label><input id="intestatario" name="intestatario" required></p>
+    <p class="campo"><label for="nascita">Data di nascita</label><input id="nascita" name="nascita" type="date"></p>
+  </div>
+  <p class="campo"><label for="uso">A cosa serve <span class="aiuto">Es. matrimonio, cresima di un nipote</span></label><input id="uso" name="uso"></p>
+  {% include "parti/form-campi-persona.njk" %}
+  {% include "parti/form-fondo.njk" %}
+</form>

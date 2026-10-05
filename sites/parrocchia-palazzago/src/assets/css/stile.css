@@ -1,0 +1,352 @@
+/* ==========================================================================
+   Stile del sito della Parrocchia di Palazzago
+   I colori e i caratteri sono definiti qui sotto in :root.
+   Per cambiare il colore principale basta modificare --accento.
+   ========================================================================== */
+
+@font-face { font-family: "Spectral"; src: url("../font/spectral-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Spectral"; src: url("../font/spectral-latin-400-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Spectral"; src: url("../font/spectral-latin-600-normal.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Spectral"; src: url("../font/spectral-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Atkinson"; src: url("../font/atkinson-hyperlegible-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Atkinson"; src: url("../font/atkinson-hyperlegible-latin-400-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Atkinson"; src: url("../font/atkinson-hyperlegible-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Atkinson"; src: url("../font/atkinson-hyperlegible-latin-700-italic.woff2") format("woff2"); font-weight: 700; font-style: italic; font-display: swap; }
+
+:root {
+  --carta: #f7f3ea;
+  --carta-scura: #ede5d4;
+  --foglio: #fffdf8;
+  --inchiostro: #2a2420;
+  --inchiostro-tenue: #5f564d;
+  --linea: #d8ccb4;
+  --accento: #8f3a26;        /* rosso mattone */
+  --accento-scuro: #6e2b1b;
+  --accento-tenue: #f3e1d9;
+  --secondario: #4f6146;     /* verde salvia */
+  --evidenza: #b88a2a;       /* ocra */
+  --titoli: "Spectral", Georgia, "Times New Roman", serif;
+  --testo: "Atkinson", "Segoe UI", system-ui, sans-serif;
+  --larghezza: 72rem;
+  --raggio: 3px;
+}
+
+/* La sezione Oratorio ha un aspetto più fresco */
+.tema-oratorio {
+  --accento: #1d6670;
+  --accento-scuro: #134a52;
+  --accento-tenue: #dcefee;
+  --evidenza: #f1bf24;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--carta);
+  color: var(--inchiostro);
+  font-family: var(--testo);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+img { max-width: 100%; height: auto; }
+
+a { color: var(--accento); text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+a:hover { color: var(--accento-scuro); text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--evidenza); outline-offset: 2px; }
+
+h1, h2, h3, h4 { font-family: var(--titoli); font-weight: 600; line-height: 1.2; margin: 0 0 0.5em; }
+h1 { font-size: clamp(2rem, 4.5vw, 3rem); letter-spacing: -0.01em; }
+h2 { font-size: clamp(1.4rem, 2.6vw, 1.75rem); }
+h3 { font-size: 1.25rem; }
+h2 a, h3 a { color: inherit; text-decoration: none; }
+h2 a:hover, h3 a:hover { color: var(--accento); }
+
+.tema-oratorio h1, .tema-oratorio h2, .tema-oratorio h3 { font-family: var(--testo); font-weight: 700; letter-spacing: -0.015em; }
+
+.contenitore { width: 100%; max-width: var(--larghezza); margin: 0 auto; padding: 0 1rem; }
+@media (min-width: 48rem) { .contenitore { padding: 0 2rem; } }
+
+.salta { position: absolute; left: -999px; top: 0; background: var(--foglio); padding: 0.5rem 1rem; z-index: 10; }
+.salta:focus { left: 1rem; }
+
+.avviso-prova {
+  margin: 0; padding: 0.4rem 1rem; text-align: center; font-size: 0.875rem;
+  background: repeating-linear-gradient(-45deg, #f6e3a6, #f6e3a6 12px, #f3dc95 12px, #f3dc95 24px);
+  color: #4b3a07;
+}
+
+/* ---------- Testata ---------- */
+.barra-alta { background: var(--inchiostro); color: #e9e1d2; font-size: 0.875rem; }
+.barra-alta .contenitore { display: flex; justify-content: space-between; gap: 1rem; padding-top: 0.35rem; padding-bottom: 0.35rem; }
+.barra-alta a { color: #fff; }
+@media (max-width: 30rem) { .barra-alta-contatti { display: none; } }
+
+.testata { background: var(--carta); border-bottom: 3px double var(--linea); }
+.testata-riga { display: flex; align-items: center; gap: 1rem; padding-top: 1.1rem; padding-bottom: 0.9rem; }
+
+.marchio { display: flex; align-items: center; gap: 0.85rem; color: var(--inchiostro); text-decoration: none; margin-right: auto; }
+.marchio:hover { color: var(--inchiostro); }
+.campanile { width: 1.7rem; height: auto; color: var(--accento); flex: none; }
+.marchio-nome { display: block; font-family: var(--titoli); font-size: clamp(1.3rem, 3vw, 1.75rem); font-weight: 600; line-height: 1.1; }
+.marchio-luogo { display: block; font-size: 0.8125rem; color: var(--inchiostro-tenue); letter-spacing: 0.04em; text-transform: uppercase; margin-top: 0.2rem; }
+
+.bottone-messe {
+  white-space: nowrap; font-weight: 700; font-size: 0.9375rem; text-decoration: none;
+  color: var(--accento); border: 2px solid var(--accento); border-radius: var(--raggio); padding: 0.35rem 0.75rem;
+}
+.bottone-messe:hover { background: var(--accento); color: #fff; }
+
+.apri-menu {
+  font: inherit; font-weight: 700; background: var(--inchiostro); color: #fff; border: 0;
+  border-radius: var(--raggio); padding: 0.45rem 0.8rem; cursor: pointer;
+}
+
+.menu ul { list-style: none; margin: 0; padding: 0 0 0.6rem; display: none; flex-direction: column; }
+.menu.aperto ul { display: flex; }
+.menu a {
+  display: block; padding: 0.55rem 0; color: var(--inchiostro); text-decoration: none; font-weight: 700;
+  border-top: 1px solid var(--linea);
+}
+.menu a[aria-current="page"] { color: var(--accento); }
+
+@media (min-width: 60rem) {
+  .apri-menu { display: none; }
+  .menu ul { display: flex; flex-direction: row; gap: 2rem; padding: 0; }
+  .menu a { border-top: 0; padding: 0.6rem 0 0.7rem; border-bottom: 3px solid transparent; margin-bottom: -3px; }
+  .menu a:hover { border-bottom-color: var(--linea); }
+  .menu a[aria-current="page"] { border-bottom-color: var(--accento); }
+}
+/* Senza JavaScript il menu resta sempre visibile */
+.no-js .menu ul { display: flex; }
+.no-js .apri-menu { display: none; }
+
+/* ---------- Elementi comuni ---------- */
+.occhiello {
+  font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--accento); margin: 0 0 0.4rem;
+}
+.occhiello a { text-decoration: none; }
+
+.bottone {
+  display: inline-block; font: inherit; font-weight: 700; text-decoration: none; cursor: pointer;
+  background: var(--accento); color: #fff; border: 2px solid var(--accento);
+  border-radius: var(--raggio); padding: 0.55rem 1.1rem;
+}
+.bottone:hover { background: var(--accento-scuro); border-color: var(--accento-scuro); color: #fff; }
+.bottone-chiaro { background: transparent; color: var(--accento); }
+.bottone-chiaro:hover { background: var(--accento-tenue); color: var(--accento-scuro); }
+.azioni { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+
+.riquadro { background: var(--foglio); border: 1px solid var(--linea); border-top: 4px solid var(--accento); padding: 1.25rem 1.4rem; }
+.riquadro-piede { margin: 1rem 0 0; padding-top: 0.75rem; border-top: 1px dashed var(--linea); font-weight: 700; }
+
+.etichetta {
+  display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 0.1rem 0.45rem; border-radius: var(--raggio); background: var(--carta-scura); color: var(--inchiostro-tenue);
+}
+.etichetta-oratorio { background: #dcefee; color: #134a52; }
+.etichetta-parrocchia { background: #f3e1d9; color: #6e2b1b; }
+
+.da-completare { color: var(--inchiostro-tenue); font-style: italic; border-left: 3px solid var(--linea); padding-left: 0.75rem; }
+.nota { background: var(--carta-scura); padding: 0.9rem 1.1rem; border-radius: var(--raggio); }
+
+/* ---------- Pagina Oggi ---------- */
+.oggi { padding-top: 2rem; padding-bottom: 3rem; }
+.oggi-testa { margin-bottom: 1.5rem; }
+.oggi-griglia { display: grid; gap: 1.25rem; }
+@media (min-width: 52rem) { .oggi-griglia { grid-template-columns: 1.1fr 1fr; align-items: start; } }
+
+.messe-oggi { list-style: none; margin: 0 0 0.75rem; padding: 0; }
+.messe-oggi li { display: flex; gap: 0.9rem; align-items: baseline; padding: 0.45rem 0; border-bottom: 1px solid var(--carta-scura); }
+.messe-oggi .ora { font-family: var(--titoli); font-weight: 700; font-size: 1.6rem; color: var(--accento); min-width: 4.2rem; font-variant-numeric: tabular-nums; }
+.messe-oggi .giorno-nome { margin-left: auto; color: var(--inchiostro-tenue); font-size: 0.875rem; }
+.js .messe-oggi .giorno-nome { display: none; }
+.messe-domani { color: var(--inchiostro-tenue); margin: 0 0 0.5rem; }
+.variazione { background: #fbf0cf; border-left: 4px solid var(--evidenza); padding: 0.6rem 0.8rem; margin: 0.75rem 0 0; }
+
+.blocco { margin-top: 3rem; }
+.blocco-testa { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0.75rem; border-bottom: 2px solid var(--inchiostro); margin-bottom: 0.5rem; }
+.blocco > h2 { border-bottom: 2px solid var(--inchiostro); padding-bottom: 0.3rem; }
+.blocco-testa h2 { margin-bottom: 0.3rem; }
+
+.filtri { display: flex; gap: 0.35rem; padding-bottom: 0.4rem; }
+.filtri button {
+  font: inherit; font-size: 0.875rem; font-weight: 700; cursor: pointer;
+  background: transparent; color: var(--inchiostro-tenue); border: 1px solid var(--linea); border-radius: 99px; padding: 0.15rem 0.75rem;
+}
+.filtri button[aria-pressed="true"] { background: var(--inchiostro); color: #fff; border-color: var(--inchiostro); }
+
+.eventi { list-style: none; margin: 0 0 1rem; padding: 0; }
+.evento { display: grid; grid-template-columns: 3.5rem 1fr; gap: 0.25rem 1rem; align-items: center; padding: 0.8rem 0; border-bottom: 1px solid var(--linea); }
+.evento .etichetta { grid-column: 2; justify-self: start; }
+@media (min-width: 40rem) { .evento { grid-template-columns: 3.5rem 1fr auto; } .evento .etichetta { grid-column: 3; } }
+.evento-data { text-align: center; line-height: 1; }
+.evento-giorno { display: block; font-family: var(--titoli); font-size: 1.9rem; font-weight: 700; }
+.evento-mese { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accento); font-weight: 700; margin-top: 0.15rem; }
+.evento-titolo { display: block; font-weight: 700; }
+.evento-dettagli { display: block; color: var(--inchiostro-tenue); font-size: 0.9375rem; }
+.vuoto { color: var(--inchiostro-tenue); font-style: italic; }
+
+.paradiso { text-align: center; background: #efebe4; padding: 2rem 1.25rem; border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea); }
+.paradiso h2 { border: 0; font-weight: 400; font-style: italic; color: #4a4540; }
+.paradiso h2::before, .paradiso h2::after { content: ""; display: inline-block; width: 2.5rem; height: 1px; background: #a59a8b; vertical-align: middle; margin: 0 0.9rem; }
+.defunti { list-style: none; padding: 0; margin: 0 auto 1rem; display: grid; gap: 1.5rem; max-width: 46rem; }
+.defunti p { margin: 0.15rem 0; color: #4a4540; }
+.defunto-nome { font-family: var(--titoli); font-size: 1.4rem; color: var(--inchiostro) !important; }
+.defunto-info { font-size: 0.9375rem; }
+
+.scorciatoie { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; }
+@media (min-width: 48rem) { .scorciatoie { grid-template-columns: 1fr 1fr; column-gap: 2rem; } }
+.scorciatoie a { display: block; padding: 0.9rem 0; border-bottom: 1px solid var(--linea); text-decoration: none; color: var(--inchiostro); }
+.scorciatoie a:hover strong { color: var(--accento); text-decoration: underline; }
+.scorciatoie strong { display: block; font-size: 1.125rem; }
+.scorciatoie span { color: var(--inchiostro-tenue); }
+
+.rete-blocco { display: grid; gap: 1rem; background: var(--secondario); color: #f3f1ea; padding: 1.75rem 1.5rem; border-radius: var(--raggio); }
+.rete-blocco h2 { border: 0; padding: 0; color: #fff; }
+.rete-blocco p { margin: 0; }
+@media (min-width: 48rem) { .rete-blocco { grid-template-columns: 2fr 1fr; align-items: center; } }
+.rete { list-style: none; padding: 0; margin: 0; }
+.rete li { margin: 0.3rem 0; }
+.rete-blocco .rete a { color: #fff; font-weight: 700; }
+
+/* ---------- Pagine interne ---------- */
+.pagina { padding-top: 2rem; padding-bottom: 3.5rem; display: grid; gap: 1.5rem 3rem; grid-template-areas: "testa" "laterale" "testo"; }
+.pagina-testa { grid-area: testa; border-bottom: 1px solid var(--linea); padding-bottom: 1rem; }
+.sommario { font-size: 1.1875rem; color: var(--inchiostro-tenue); max-width: 44rem; margin: 0; }
+.testo { grid-area: testo; min-width: 0; max-width: 46rem; }
+.laterale { grid-area: laterale; }
+@media (min-width: 60rem) {
+  .con-laterale { grid-template-columns: 14rem 1fr; grid-template-areas: "testa testa" "laterale testo"; }
+  .laterale { position: sticky; top: 1rem; align-self: start; }
+}
+.laterale-titolo { font-family: var(--titoli); font-weight: 600; font-size: 1.1rem; margin: 0 0 0.5rem; }
+.laterale ul { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--linea); }
+@media (max-width: 59.99rem) {
+  .laterale-titolo { display: none; }
+  .laterale ul { border: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .laterale li a { border: 1px solid var(--linea) !important; border-radius: 99px; padding: 0.2rem 0.8rem !important; margin: 0 !important; font-size: 0.9375rem; background: var(--foglio); }
+}
+.laterale a { display: block; padding: 0.35rem 0 0.35rem 0.9rem; margin-left: -2px; border-left: 2px solid transparent; color: var(--inchiostro); text-decoration: none; }
+.laterale a:hover { color: var(--accento); }
+.laterale a[aria-current="page"] { border-left-color: var(--accento); color: var(--accento); font-weight: 700; }
+
+.testo h2 { margin-top: 2rem; }
+.testo h3 { margin-top: 1.5rem; }
+.testo > :first-child { margin-top: 0; }
+.testo ul, .testo ol { padding-left: 1.25rem; }
+.testo li { margin: 0.3rem 0; }
+.testo blockquote { margin: 1.5rem 0; padding: 0.25rem 0 0.25rem 1.25rem; border-left: 3px solid var(--accento); font-family: var(--titoli); font-size: 1.2rem; font-style: italic; }
+
+table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.9875rem; }
+th, td { text-align: left; padding: 0.55rem 0.6rem 0.55rem 0; border-bottom: 1px solid var(--linea); vertical-align: top; }
+th { font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--inchiostro-tenue); border-bottom: 2px solid var(--inchiostro); }
+td.numero, th.numero { text-align: right; font-variant-numeric: tabular-nums; }
+.tabella-scorre { overflow-x: auto; }
+
+/* Elenchi a schede (sezioni, chiese, gruppi) */
+.elenco-voci { list-style: none; padding: 0 !important; margin: 0; }
+.elenco-voci > li { margin: 0; padding: 1rem 0; border-bottom: 1px solid var(--linea); }
+.elenco-voci h3 { margin: 0 0 0.25rem; }
+.elenco-voci p { margin: 0.2rem 0; }
+.elenco-voci .dettaglio { color: var(--inchiostro-tenue); font-size: 0.9375rem; }
+
+/* Passi numerati (sacramenti) */
+.passi { counter-reset: passo; list-style: none; padding: 0 !important; }
+.passi > li { counter-increment: passo; position: relative; padding: 0 0 1rem 3rem; margin: 0; }
+.passi > li::before {
+  content: counter(passo); position: absolute; left: 0; top: -0.1rem; width: 2rem; height: 2rem; border-radius: 50%;
+  display: grid; place-items: center; font-family: var(--titoli); font-weight: 700; background: var(--accento-tenue); color: var(--accento-scuro);
+}
+
+/* Linea del tempo (parroci) */
+.linea-tempo { list-style: none; padding: 0 0 0 1.5rem !important; border-left: 2px solid var(--accento); margin-left: 0.5rem; }
+.linea-tempo li { position: relative; margin: 0 0 1.5rem; }
+.linea-tempo li::before { content: ""; position: absolute; left: -1.95rem; top: 0.45rem; width: 0.8rem; height: 0.8rem; border-radius: 50%; background: var(--carta); border: 2px solid var(--accento); }
+.linea-tempo .anni { font-weight: 700; color: var(--accento); font-size: 0.9375rem; }
+
+/* Barre del bilancio */
+.barre { list-style: none; padding: 0 !important; }
+.barre li { margin: 0 0 0.8rem; }
+.barra-riga { display: flex; justify-content: space-between; gap: 1rem; }
+.barra { height: 0.6rem; background: var(--carta-scura); border-radius: 99px; overflow: hidden; margin-top: 0.25rem; }
+.barra span { display: block; height: 100%; background: var(--secondario); }
+.uscite .barra span { background: var(--accento); }
+.cifre { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); margin: 1.5rem 0; }
+.cifra { background: var(--foglio); border: 1px solid var(--linea); padding: 1rem; }
+.cifra strong { display: block; font-family: var(--titoli); font-size: 1.8rem; line-height: 1.1; }
+.cifra span { color: var(--inchiostro-tenue); font-size: 0.9375rem; }
+
+/* Moduli */
+.modulo { background: var(--foglio); border: 1px solid var(--linea); padding: 1.25rem 1.4rem; margin: 1.5rem 0; }
+.campo { margin: 0 0 1rem; }
+.campo label { display: block; font-weight: 700; margin-bottom: 0.25rem; }
+.campo .aiuto { display: block; font-weight: 400; font-size: 0.875rem; color: var(--inchiostro-tenue); }
+input, select, textarea {
+  font: inherit; width: 100%; padding: 0.55rem 0.65rem; color: var(--inchiostro);
+  background: #fff; border: 1px solid #b9ab90; border-radius: var(--raggio);
+}
+textarea { min-height: 7rem; resize: vertical; }
+input:focus, select:focus, textarea:focus { outline: 3px solid var(--evidenza); outline-offset: 0; border-color: var(--inchiostro); }
+.campi-due { display: grid; gap: 0 1rem; }
+@media (min-width: 40rem) { .campi-due { grid-template-columns: 1fr 1fr; } .campi-tre { grid-template-columns: 2fr 1fr 1fr; } }
+.campo-check label { display: flex; gap: 0.6rem; align-items: flex-start; }
+.campo-check input { width: auto; margin-top: 0.3rem; }
+.trappola { position: absolute; left: -9999px; }
+.esito { padding: 0.75rem 1rem; border-radius: var(--raggio); font-weight: 700; }
+.esito.ok { background: #e2eedc; color: #2d4a22; }
+.esito.errore { background: #f7dcd5; color: #6e2b1b; }
+
+.calendario-incorporato { width: 100%; height: 34rem; border: 1px solid var(--linea); background: #fff; }
+.pdf-sfogliabile { width: 100%; height: 75vh; border: 1px solid var(--linea); background: #fff; }
+
+/* Archivio La Lettera */
+.lettere { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr)); list-style: none; padding: 0 !important; }
+.lettere li { margin: 0; }
+.copertina {
+  display: flex; flex-direction: column; justify-content: space-between; aspect-ratio: 3 / 4; padding: 0.9rem;
+  background: var(--foglio); border: 1px solid var(--linea); box-shadow: 3px 3px 0 var(--carta-scura);
+  text-decoration: none; color: var(--inchiostro);
+}
+.copertina:hover { border-color: var(--accento); color: var(--inchiostro); }
+.copertina .testata-lettera { font-family: var(--titoli); font-size: 1.35rem; font-weight: 700; border-bottom: 2px solid var(--accento); }
+.copertina .numero { font-family: var(--titoli); font-style: italic; font-size: 1.1rem; }
+.copertina .stato { font-size: 0.8125rem; color: var(--inchiostro-tenue); }
+
+/* Spazio Giovani */
+.post-elenco { list-style: none; padding: 0 !important; }
+.post-elenco li { padding: 1.25rem 0; border-bottom: 1px solid var(--linea); margin: 0; }
+.firma { color: var(--inchiostro-tenue); font-size: 0.9375rem; }
+
+/* ---------- Piede ---------- */
+.piede { background: #2a2420; color: #d9d1c3; padding-top: 2.5rem; font-size: 0.9375rem; }
+.piede a { color: #fff; }
+.piede-griglia { display: grid; gap: 1.5rem; }
+@media (min-width: 48rem) { .piede-griglia { grid-template-columns: 1.3fr 1fr 1fr; } }
+.piede-nome { font-family: var(--titoli); font-size: 1.25rem; color: #fff; margin-top: 0; }
+.piede-titolo { font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.8125rem; margin-top: 0; }
+.piede-link { list-style: none; padding: 0; margin: 0; }
+.piede-link li { margin: 0.3rem 0; }
+.piede-fondo { border-top: 1px solid #4a423b; margin-top: 2rem; padding-top: 1rem; padding-bottom: 1.5rem; color: #a99f90; font-size: 0.875rem; }
+
+@media print {
+  .barra-alta, .testata nav, .apri-menu, .piede, .laterale, .avviso-prova, .filtri { display: none !important; }
+  body { background: #fff; }
+}
+
+/* Testata su telefoni stretti */
+@media (max-width: 30rem) {
+  .testata-riga { gap: 0.5rem; }
+  .marchio { gap: 0.55rem; min-width: 0; }
+  .solo-largo { display: none; }
+  .campanile { width: 1.25rem; }
+  .marchio-nome { font-size: 1.1rem; }
+  .marchio-luogo { font-size: 0.625rem; letter-spacing: 0.02em; }
+  .bottone-messe { font-size: 0.8125rem; padding: 0.3rem 0.5rem; }
+  .apri-menu { padding: 0.4rem 0.6rem; }
+}

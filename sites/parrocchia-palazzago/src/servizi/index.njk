@@ -1,0 +1,10 @@
+---
+title: Servizi
+descrizione: Prenotazioni, iscrizioni e certificati. Online, senza passare dalla segreteria.
+descrizioni:
+  /servizi/prenotazioni/: Campetto, salone, sala del camino. Vedi quando sono liberi e chiedili.
+  /servizi/iscrizioni/: Catechesi, CRE, campi scuola. I moduli online e quelli da stampare.
+  /servizi/certificati/: Battesimo, cresima, idoneità a fare da padrino. Si chiedono da qui.
+---
+{% include "parti/indice-sezione.njk" %}
+<p class="nota">La segreteria è aperta {{ sito.orariSegreteria | lower }}. Telefono <a href="tel:{{ sito.telefono | replace(' ', '') }}">{{ sito.telefono }}</a>.</p>

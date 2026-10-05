@@ -1,0 +1,12 @@
+---
+title: Il bar dell'oratorio
+descrizione: Orari di apertura e come dare una mano dietro al bancone.
+---
+<h2>Orari</h2>
+<table>
+  <tbody>
+  {%- for o in bar.orari %}<tr><th scope="row">{{ o.giorni }}</th><td>{{ o.ore }}</td></tr>{% endfor %}
+  </tbody>
+</table>
+<p>{{ bar.nota }}</p>
+<p class="dettaglio">I turni dei baristi si gestiscono nel gruppo dei volontari, non sul sito pubblico.</p>

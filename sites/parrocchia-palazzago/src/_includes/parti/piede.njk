@@ -1,0 +1,28 @@
+<footer class="piede">
+  <div class="contenitore piede-griglia">
+    <div>
+      <p class="piede-nome">{{ sito.nome }}</p>
+      <p>{{ sito.indirizzo }}<br>
+      Tel. <a href="tel:{{ sito.telefono | replace(' ', '') }}">{{ sito.telefono }}</a><br>
+      <a href="mailto:{{ sito.email }}">{{ sito.email }}</a></p>
+      <p>Segreteria: {{ sito.orariSegreteria }}</p>
+    </div>
+    <div>
+      <p class="piede-titolo">Resta in contatto</p>
+      {% include "parti/rete.njk" %}
+    </div>
+    <div>
+      <p class="piede-titolo">Pagine utili</p>
+      <ul class="piede-link">
+        <li><a href="/orari/">Orari delle Messe</a></li>
+        <li><a href="/avvisi/">Avvisi della settimana</a></li>
+        <li><a href="/servizi/prenotazioni/">Prenotare una sala</a></li>
+        <li><a href="/carita/bilancio/">Bilancio aperto</a></li>
+        <li><a href="/privacy/">Privacy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="contenitore piede-fondo">
+    <span>Comunità parrocchiale di {{ sito.luogo }} · {{ sito.diocesi }}</span>
+  </div>
+</footer>

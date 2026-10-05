@@ -1,0 +1,60 @@
+{%- set sezione = page.url | sezioneDi(menu) -%}
+<!doctype html>
+<html lang="it" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if title and page.url != "/" %}{{ title }} · {% endif %}{{ sito.nome }} · {{ sito.luogo }}</title>
+  <meta name="description" content="{{ descrizione or sito.sottotitolo }}">
+  <link rel="preload" href="/assets/font/spectral-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/stile.css">
+  <link rel="icon" href="/assets/img/icona.svg" type="image/svg+xml">
+  <script>
+    document.documentElement.className = "js";
+    // Link di invito al pannello di modifica: porta alla pagina /admin/
+    if (/(invite|recovery|confirmation)_token/.test(location.hash)) location.replace("/admin/" + location.hash);
+  </script>
+  <script src="/assets/js/sito.js" defer></script>
+</head>
+<body class="{% if tema %}tema-{{ tema }}{% endif %}">
+  <a class="salta" href="#contenuto">Vai al contenuto</a>
+
+  {% if sito.datiDiEsempio %}
+  <p class="avviso-prova">Sito in preparazione: orari, date e nomi sono di esempio e vanno verificati.</p>
+  {% endif %}
+
+  <div class="barra-alta">
+    <div class="contenitore">
+      <span>{{ sito.diocesi }}</span>
+      <span class="barra-alta-contatti">Segreteria <a href="tel:{{ sito.telefono | replace(' ', '') }}">{{ sito.telefono }}</a></span>
+    </div>
+  </div>
+
+  <header class="testata">
+    <div class="contenitore testata-riga">
+      <a class="marchio" href="/">
+        {% include "parti/campanile.njk" %}
+        <span>
+          <span class="marchio-nome">San Giovanni Battista</span>
+          <span class="marchio-luogo">Parrocchia e Oratorio di {{ sito.luogo }}</span>
+        </span>
+      </a>
+      <a class="bottone-messe" href="/orari/"><span class="solo-largo">Orari </span>Messe</a>
+      <button class="apri-menu" type="button" aria-expanded="false" aria-controls="menu-principale">Menu</button>
+    </div>
+    <nav class="contenitore menu" id="menu-principale" aria-label="Menu principale">
+      <ul>
+        {%- for voce in menu %}
+        <li><a href="{{ voce.url }}"{% if (voce.url == "/" and page.url == "/") or (sezione and sezione.url == voce.url) %} aria-current="page"{% endif %}>{{ voce.titolo }}</a></li>
+        {%- endfor %}
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenuto">
+    {{ content | safe }}
+  </main>
+
+  {% include "parti/piede.njk" %}
+</body>
+</html>

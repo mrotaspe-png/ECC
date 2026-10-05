@@ -1,0 +1,14 @@
+---
+title: Gruppi e ministeri
+descrizione: C'è posto per tutti. Ecco cosa fa ciascun gruppo e come farne parte.
+---
+<ul class="elenco-voci">
+  {%- for g in gruppi.elenco %}
+  <li>
+    <h3>{{ g.nome }}</h3>
+    <p>{{ g.cosaFa }}</p>
+    <p class="dettaglio">{{ g.quando }}{% if g.referente %} · Referente: {{ g.referente }}{% endif %}</p>
+  </li>
+  {%- endfor %}
+</ul>
+<p>Vuoi entrare in un gruppo? Scrivi alla <a href="mailto:{{ sito.email }}">segreteria</a>: ti metteremo in contatto con chi lo coordina.</p>

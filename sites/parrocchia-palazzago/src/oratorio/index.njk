@@ -1,0 +1,21 @@
+---
+title: Oratorio
+descrizione: Il cortile, il bar, la catechesi, il CRE, il Palio. Il posto dove si cresce insieme.
+descrizioni:
+  /oratorio/giovani/: Scritto dai ragazzi, per i ragazzi. Eventi, pensieri, passioni.
+  /oratorio/catechesi/: I cammini dalla prima elementare alla terza media, con le date degli incontri.
+  /oratorio/cre/: L'estate in oratorio. Aggiornamenti giorno per giorno, menu, canzoni.
+  /oratorio/palio/: Regolamento e albo d'oro della sfida tra le contrade.
+  /oratorio/sport/: Il gruppo calcio e le altre attività sportive.
+  /oratorio/bar/: Orari, turni e come dare una mano.
+---
+<h2>Prossimamente in oratorio</h2>
+<ul class="eventi" data-eventi data-massimo="4">
+  {%- for evento in eventi.elenco | ordinaPerData %}{% if evento.ambito == "oratorio" %}
+  {% include "parti/riga-evento.njk" %}{% endif %}
+  {%- endfor %}
+</ul>
+<p class="vuoto" data-vuoto hidden>Nessun appuntamento in programma per ora.</p>
+
+<h2>Le attività</h2>
+{% include "parti/indice-sezione.njk" %}

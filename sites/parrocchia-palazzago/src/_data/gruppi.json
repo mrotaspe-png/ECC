@@ -1,0 +1,34 @@
+{
+  "elenco": [
+    {
+      "nome": "Lettori",
+      "cosaFa": "Proclamano la Parola durante le celebrazioni.",
+      "quando": "Domenica e feste",
+      "referente": ""
+    },
+    {
+      "nome": "Coro parrocchiale",
+      "cosaFa": "Anima il canto della Messa delle 10:30 e delle feste principali.",
+      "quando": "Prove il giovedì sera",
+      "referente": ""
+    },
+    {
+      "nome": "Chierichetti",
+      "cosaFa": "Servono all'altare. Aperto ai ragazzi dalla terza elementare.",
+      "quando": "Domenica",
+      "referente": ""
+    },
+    {
+      "nome": "Volontari pulizie",
+      "cosaFa": "Si prendono cura della chiesa e dell'oratorio, a turni.",
+      "quando": "Un'ora a settimana",
+      "referente": ""
+    },
+    {
+      "nome": "Gruppo missionario",
+      "cosaFa": "Tiene vivo il legame con i missionari del paese e organizza raccolte.",
+      "quando": "Una volta al mese",
+      "referente": ""
+    }
+  ]
+}

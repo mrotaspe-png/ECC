@@ -1,0 +1,31 @@
+---
+title: Orari delle Messe
+descrizione: Messe festive e feriali nelle chiese della parrocchia, confessioni e variazioni del periodo.
+---
+{% for v in orari.variazioni %}
+<p class="variazione" data-dal="{{ v.dal }}" data-al="{{ v.al }}"><strong>Dal {{ v.dal | data }} al {{ v.al | data }}:</strong> {{ v.testo }}</p>
+{% endfor %}
+
+{%- set ordine = ["sabato", "domenica", "lunedì", "martedì", "mercoledì", "giovedì", "venerdì"] -%}
+<h2>Sante Messe</h2>
+<div class="tabella-scorre">
+<table>
+  <thead><tr><th>Giorno</th><th>Ora</th><th>Dove</th></tr></thead>
+  <tbody>
+  {%- for g in ordine %}
+    {%- for m in orari.messe %}{% if m.giorno == g %}
+    <tr><td>{{ g | capitalize }}</td><td><strong>{{ m.ora }}</strong></td><td>{{ m.luogo }}{% if m.nota %} <em>({{ m.nota }})</em>{% endif %}</td></tr>
+    {%- endif %}{% endfor %}
+  {%- endfor %}
+  </tbody>
+</table>
+</div>
+
+<h2>Confessioni</h2>
+<ul>
+{%- for c in orari.confessioni %}
+  <li><strong>{{ c.giorno | capitalize }}</strong>, {{ c.ora }}{% if c.luogo %}, {{ c.luogo }}{% endif %}</li>
+{%- endfor %}
+</ul>
+
+<p class="nota">Nelle feste di precetto vale l'orario della domenica. Per le Messe in suffragio dei defunti ci si rivolge in sacrestia o in <a href="/contatti/">segreteria</a>.</p>

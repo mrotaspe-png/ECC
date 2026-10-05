@@ -1,0 +1,28 @@
+{
+  "nome": "Parrocchia San Giovanni Battista",
+  "luogo": "Palazzago",
+  "sottotitolo": "Parrocchia e Oratorio di Palazzago",
+  "diocesi": "Diocesi di Bergamo",
+  "url": "https://www.oratoriopalazzago.it",
+  "indirizzo": "Piazza della Chiesa, Palazzago (BG)",
+  "telefono": "035 000 0000",
+  "email": "segreteria@oratoriopalazzago.it",
+  "orariSegreteria": "Martedì e venerdì, 9.30 – 11.30",
+  "datiDiEsempio": true,
+  "social": {
+    "whatsapp": "",
+    "telegram": "",
+    "telegramRagazzi": "",
+    "instagram": "",
+    "newsletter": ""
+  },
+  "calendari": {
+    "comunita": "",
+    "prenotazioni": ""
+  },
+  "moduli": {
+    "endpoint": "",
+    "emailRiserva": "segreteria@oratoriopalazzago.it"
+  },
+  "mediateca": ""
+}

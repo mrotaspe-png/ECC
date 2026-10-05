@@ -1,0 +1,28 @@
+{
+  "elenco": [
+    {
+      "titolo": "Iscrizione alla catechesi",
+      "periodo": "settembre – ottobre",
+      "online": "",
+      "pdf": ""
+    },
+    {
+      "titolo": "Iscrizione al CRE",
+      "periodo": "aprile – maggio",
+      "online": "",
+      "pdf": ""
+    },
+    {
+      "titolo": "Iscrizione ai campi scuola",
+      "periodo": "primavera",
+      "online": "",
+      "pdf": ""
+    },
+    {
+      "titolo": "Autorizzazione uscite e liberatoria foto",
+      "periodo": "tutto l'anno",
+      "online": "",
+      "pdf": ""
+    }
+  ]
+}

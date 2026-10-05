@@ -1,0 +1,8 @@
+<li class="evento" data-data="{{ evento.data | iso }}" data-ambito="{{ evento.ambito }}">
+  <span class="evento-data"><span class="evento-giorno">{{ evento.data | giornoNumero }}</span><span class="evento-mese">{{ evento.data | meseBreve }}</span></span>
+  <span class="evento-testo">
+    <span class="evento-titolo">{{ evento.titolo }}</span>
+    <span class="evento-dettagli">{{ evento.data | dataGiorno }}{% if evento.ora %}, ore {{ evento.ora }}{% endif %}{% if evento.luogo %} · {{ evento.luogo }}{% endif %}</span>
+  </span>
+  <span class="etichetta etichetta-{{ evento.ambito }}">{{ "Oratorio" if evento.ambito == "oratorio" else "Parrocchia" }}</span>
+</li>

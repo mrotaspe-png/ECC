@@ -1,0 +1,46 @@
+{
+  "elenco": [
+    {
+      "data": "2026-10-11",
+      "ora": "10:30",
+      "titolo": "Apertura dell'anno catechistico",
+      "luogo": "Chiesa parrocchiale",
+      "ambito": "oratorio"
+    },
+    {
+      "data": "2026-10-14",
+      "ora": "20:45",
+      "titolo": "Consiglio pastorale",
+      "luogo": "Sala del camino",
+      "ambito": "parrocchia"
+    },
+    {
+      "data": "2026-10-18",
+      "ora": "15:00",
+      "titolo": "Castagnata in oratorio",
+      "luogo": "Cortile dell'oratorio",
+      "ambito": "oratorio"
+    },
+    {
+      "data": "2026-10-25",
+      "ora": "16:00",
+      "titolo": "Battesimi comunitari",
+      "luogo": "Chiesa parrocchiale",
+      "ambito": "parrocchia"
+    },
+    {
+      "data": "2026-11-01",
+      "ora": "15:00",
+      "titolo": "Tutti i Santi: preghiera al cimitero",
+      "luogo": "Cimitero",
+      "ambito": "parrocchia"
+    },
+    {
+      "data": "2026-11-08",
+      "ora": "18:30",
+      "titolo": "Pizza ado",
+      "luogo": "Salone dell'oratorio",
+      "ambito": "oratorio"
+    }
+  ]
+}

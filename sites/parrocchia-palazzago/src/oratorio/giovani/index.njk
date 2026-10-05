@@ -1,0 +1,17 @@
+---
+title: Spazio Giovani
+descrizione: Questa pagina la scrivono gli adolescenti e i giovani dell'oratorio.
+layout: layouts/pagina.njk
+permalink: /oratorio/giovani/
+eleventyExcludeFromCollections: true
+---
+<p>Vuoi scrivere qui? Manda il tuo pezzo agli educatori. Lo leggono prima di pubblicarlo, poi esce con il tuo nome (o solo con le iniziali, se preferisci).</p>
+<ul class="post-elenco">
+  {%- for p in collections.giovani %}
+  <li>
+    <h3><a href="{{ p.url }}">{{ p.data.title }}</a></h3>
+    <p class="firma">{{ p.date | data }}{% if p.data.autore %} · {{ p.data.autore }}{% endif %}</p>
+    {% if p.data.descrizione %}<p>{{ p.data.descrizione }}</p>{% endif %}
+  </li>
+  {%- endfor %}
+</ul>

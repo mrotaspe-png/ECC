@@ -1,0 +1,17 @@
+{
+  "domenica": "2026-10-11",
+  "celebrazione": "XXVIII domenica del Tempo Ordinario",
+  "letture": [
+    { "tipo": "Prima lettura", "riferimento": "" },
+    { "tipo": "Salmo responsoriale", "riferimento": "" },
+    { "tipo": "Seconda lettura", "riferimento": "" },
+    { "tipo": "Vangelo", "riferimento": "" }
+  ],
+  "linkLetture": "https://www.chiesacattolica.it/liturgia-del-giorno/",
+  "canti": [
+    { "momento": "Ingresso", "titolo": "", "libro": "" },
+    { "momento": "Offertorio", "titolo": "", "libro": "" },
+    { "momento": "Comunione", "titolo": "", "libro": "" },
+    { "momento": "Finale", "titolo": "", "libro": "" }
+  ]
+}

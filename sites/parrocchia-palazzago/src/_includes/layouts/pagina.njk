@@ -1,0 +1,26 @@
+---
+layout: layouts/base.njk
+---
+{%- set sezione = page.url | sezioneDi(menu) -%}
+<div class="contenitore pagina{% if sezione and sezione.sottovoci %} con-laterale{% endif %}">
+  <header class="pagina-testa">
+    {% if sezione and sezione.url != page.url %}<p class="occhiello"><a href="{{ sezione.url }}">{{ sezione.titolo }}</a></p>{% endif %}
+    <h1>{{ title }}</h1>
+    {% if descrizione %}<p class="sommario">{{ descrizione }}</p>{% endif %}
+  </header>
+
+  {% if sezione and sezione.sottovoci %}
+  <nav class="laterale" aria-label="In questa sezione">
+    <p class="laterale-titolo">{{ sezione.titolo }}</p>
+    <ul>
+      {%- for voce in sezione.sottovoci %}
+      <li><a href="{{ voce.url }}"{% if page.url.startsWith(voce.url) %} aria-current="page"{% endif %}>{{ voce.titolo }}</a></li>
+      {%- endfor %}
+    </ul>
+  </nav>
+  {% endif %}
+
+  <div class="testo">
+    {{ content | safe }}
+  </div>
+</div>

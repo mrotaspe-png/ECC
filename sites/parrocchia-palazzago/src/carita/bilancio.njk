@@ -1,0 +1,38 @@
+---
+title: Bilancio aperto
+descrizione: Quanto entra, quanto esce, quanto manca. I conti della parrocchia, spiegati.
+---
+{%- set totEntrate = bilancio.entrate | sum("importo") -%}
+{%- set totUscite = bilancio.uscite | sum("importo") -%}
+<p class="occhiello">Rendiconto {{ bilancio.anno }} · aggiornato al {{ bilancio.aggiornato | data }}</p>
+
+<div class="cifre">
+  <div class="cifra"><strong>{{ totEntrate | euro }}</strong><span>entrate</span></div>
+  <div class="cifra"><strong>{{ totUscite | euro }}</strong><span>uscite</span></div>
+  <div class="cifra"><strong>{{ (totEntrate - totUscite) | euro }}</strong><span>{{ "avanzo" if totEntrate >= totUscite else "disavanzo" }}</span></div>
+</div>
+
+<h2>Da dove arrivano i soldi</h2>
+<ul class="barre">
+  {%- for e in bilancio.entrate %}
+  <li><div class="barra-riga"><span>{{ e.voce }}</span><strong>{{ e.importo | euro }}</strong></div>
+  <div class="barra"><span style="width: {{ e.importo | percento(totEntrate) }}%"></span></div></li>
+  {%- endfor %}
+</ul>
+
+<h2>Come vengono spesi</h2>
+<ul class="barre uscite">
+  {%- for u in bilancio.uscite %}
+  <li><div class="barra-riga"><span>{{ u.voce }}</span><strong>{{ u.importo | euro }}</strong></div>
+  <div class="barra"><span style="width: {{ u.importo | percento(totUscite) }}%"></span></div></li>
+  {%- endfor %}
+</ul>
+
+<h2>Debiti e mutui</h2>
+{% for d in bilancio.debiti %}
+<h3>{{ d.nome }}</h3>
+<p>Restituiti <strong>{{ d.restituito | euro }}</strong> su {{ d.totale | euro }} ({{ d.restituito | percento(d.totale) }}%). Mancano {{ (d.totale - d.restituito) | euro }}{% if d.fine %}; ultima rata prevista nel {{ d.fine }}{% endif %}.</p>
+<div class="barra" role="img" aria-label="{{ d.restituito | percento(d.totale) }} per cento restituito"><span style="width: {{ d.restituito | percento(d.totale) }}%"></span></div>
+{% endfor %}
+
+<p class="nota">I conti sono approvati dal Consiglio per gli affari economici e presentati ogni anno alla Curia. Per domande: <a href="mailto:{{ sito.email }}">{{ sito.email }}</a>.</p>

@@ -3,7 +3,7 @@ const globals = require('globals');
 
 module.exports = [
     {
-        ignores: ['.opencode/dist/**', '.cursor/**', 'node_modules/**', '.venv/**', 'venv/**', 'coverage/**', 'workflows/**/*.workflow.*', '.claude/workflows/**']
+        ignores: ['.opencode/dist/**', '.cursor/**', 'node_modules/**', '.venv/**', 'venv/**', 'coverage/**', 'workflows/**/*.workflow.*', '.claude/workflows/**', 'sites/**/_site/**']
     },
     js.configs.recommended,
     {
@@ -23,6 +23,15 @@ module.exports = [
             }],
             'no-undef': 'error',
             'eqeqeq': 'warn'
+        }
+    },
+    {
+        files: ['sites/**/assets/js/**/*.js'],
+        languageOptions: {
+            sourceType: 'script',
+            globals: {
+                ...globals.browser
+            }
         }
     },
     {

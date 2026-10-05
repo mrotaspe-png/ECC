@@ -1,0 +1,34 @@
+---
+title: CRE
+descrizione: L'estate in oratorio. Qui gli aggiornamenti di ogni giorno, il menu e le comunicazioni urgenti.
+---
+<p class="occhiello">CRE {{ cre.anno }}{% if cre.tema %} · {{ cre.tema }}{% endif %}</p>
+{% if cre.date %}<p><strong>Quando:</strong> {{ cre.date }}</p>{% endif %}
+
+<p class="nota"><strong>Comunicazioni urgenti</strong> (pioggia, uscite, orari cambiati) arrivano prima di tutto sul
+{% if sito.social.telegramRagazzi %}<a href="{{ sito.social.telegramRagazzi }}">canale Telegram del CRE</a>{% else %}canale Telegram del CRE{% endif %}.
+Iscrizioni dallo <a href="/servizi/iscrizioni/">sportello</a>. Per tutto il resto: <a href="mailto:cre@oratoriopalazzago.it">cre@oratoriopalazzago.it</a>.</p>
+
+<h2>Giorno per giorno</h2>
+{% if cre.aggiornamenti | length %}
+<ul class="elenco-voci">
+  {%- for a in cre.aggiornamenti | reverse %}
+  <li><h3>{{ a.data | dataGiorno }}</h3><p>{{ a.testo }}</p></li>
+  {%- endfor %}
+</ul>
+{% else %}
+<p class="vuoto">Gli aggiornamenti partono con il primo giorno di CRE.</p>
+{% endif %}
+
+<h2>Menu della mensa</h2>
+<table>
+  <thead><tr><th>Giorno</th><th>Si mangia</th></tr></thead>
+  <tbody>
+  {%- for m in cre.menu %}<tr><td>{{ m.giorno | capitalize }}</td><td>{{ m.piatti or "da definire" }}</td></tr>{% endfor %}
+  </tbody>
+</table>
+
+{% if cre.canzoni | length %}
+<h2>Le canzoni del CRE</h2>
+<ul>{% for c in cre.canzoni %}<li>{% if c.link %}<a href="{{ c.link }}">{{ c.titolo }}</a>{% else %}{{ c.titolo }}{% endif %}</li>{% endfor %}</ul>
+{% endif %}

@@ -1,0 +1,26 @@
+{
+  "nota": "Giorni scritti per esteso (domenica, lunedì, …). Orari nel formato 18:00.",
+  "messe": [
+    { "giorno": "sabato", "ora": "18:00", "luogo": "Chiesa parrocchiale", "nota": "prefestiva" },
+    { "giorno": "domenica", "ora": "08:00", "luogo": "Chiesa parrocchiale" },
+    { "giorno": "domenica", "ora": "09:30", "luogo": "Burligo" },
+    { "giorno": "domenica", "ora": "10:30", "luogo": "Chiesa parrocchiale" },
+    { "giorno": "domenica", "ora": "18:00", "luogo": "Chiesa parrocchiale" },
+    { "giorno": "lunedì", "ora": "08:30", "luogo": "Chiesa parrocchiale" },
+    { "giorno": "martedì", "ora": "20:00", "luogo": "Brocchione" },
+    { "giorno": "mercoledì", "ora": "08:30", "luogo": "Chiesa parrocchiale" },
+    { "giorno": "giovedì", "ora": "20:00", "luogo": "Montebello" },
+    { "giorno": "venerdì", "ora": "08:30", "luogo": "Chiesa parrocchiale" }
+  ],
+  "confessioni": [
+    { "giorno": "sabato", "ora": "16:00 – 17:30", "luogo": "Chiesa parrocchiale" },
+    { "giorno": "ogni giorno", "ora": "prima e dopo le Messe feriali", "luogo": "o su appuntamento" }
+  ],
+  "variazioni": [
+    {
+      "dal": "2026-10-01",
+      "al": "2026-10-31",
+      "testo": "Per tutto ottobre, il martedì alle 20:00 si recita il Rosario prima della Messa a Brocchione."
+    }
+  ]
+}

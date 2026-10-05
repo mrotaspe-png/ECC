@@ -1,0 +1,98 @@
+---
+layout: layouts/base.njk
+title: Oggi in comunità
+descrizione: Messe di oggi, avvisi della settimana e appuntamenti della Parrocchia e dell'Oratorio di Palazzago.
+---
+{%- set ultimo = collections.avvisi[0] -%}
+<div class="contenitore oggi">
+  <header class="oggi-testa">
+    <p class="occhiello" data-oggi>Oggi</p>
+    <h1>Oggi in comunità</h1>
+  </header>
+
+  <div class="oggi-griglia">
+    <section class="riquadro riquadro-messe" aria-labelledby="t-messe">
+      <h2 id="t-messe" data-titolo-messe>Messe di oggi</h2>
+      <ul class="messe-oggi" data-messe-oggi>
+        {%- for m in orari.messe %}
+        <li data-giorno="{{ m.giorno }}"><span class="ora">{{ m.ora }}</span> <span>{{ m.luogo }}{% if m.nota %} <em>({{ m.nota }})</em>{% endif %}</span> <span class="giorno-nome">{{ m.giorno }}</span></li>
+        {%- endfor %}
+      </ul>
+      <p class="messe-domani" data-messe-domani hidden></p>
+      {% for v in orari.variazioni %}
+      <p class="variazione" data-dal="{{ v.dal }}" data-al="{{ v.al }}"><strong>Attenzione:</strong> {{ v.testo }}</p>
+      {% endfor %}
+      <p class="riquadro-piede"><a href="/orari/">Tutti gli orari e le confessioni</a></p>
+    </section>
+
+    <section class="riquadro riquadro-avvisi" aria-labelledby="t-avvisi">
+      <p class="occhiello">Gli avvisi della settimana</p>
+      {% if ultimo %}
+      <h2 id="t-avvisi"><a href="{{ ultimo.url }}">La LetteRina · {{ ultimo.date | data }}</a></h2>
+      <p>{{ ultimo.data.sommario }}</p>
+      <p class="azioni">
+        <a class="bottone" href="{{ ultimo.url }}">Leggi gli avvisi</a>
+        {% if ultimo.data.pdf %}<a class="bottone bottone-chiaro" href="{{ ultimo.data.pdf }}" download>Scarica il PDF</a>{% endif %}
+      </p>
+      {% else %}
+      <h2 id="t-avvisi">La LetteRina</h2>
+      <p>Gli avvisi di questa settimana non sono ancora stati pubblicati.</p>
+      {% endif %}
+      <p class="riquadro-piede"><a href="/avvisi/">Settimane precedenti</a></p>
+    </section>
+  </div>
+
+  <section class="blocco" aria-labelledby="t-calendario">
+    <div class="blocco-testa">
+      <h2 id="t-calendario">Prossimi appuntamenti</h2>
+      <div class="filtri" data-filtri hidden>
+        <button type="button" aria-pressed="true" data-ambito="tutti">Tutti</button>
+        <button type="button" aria-pressed="false" data-ambito="parrocchia">Parrocchia</button>
+        <button type="button" aria-pressed="false" data-ambito="oratorio">Oratorio</button>
+      </div>
+    </div>
+    <ul class="eventi" data-eventi data-massimo="6">
+      {%- for evento in eventi.elenco | ordinaPerData %}
+      {% include "parti/riga-evento.njk" %}
+      {%- endfor %}
+    </ul>
+    <p class="vuoto" data-vuoto hidden>Nessun appuntamento in programma per ora.</p>
+    <p><a href="/calendario/">Calendario completo</a></p>
+  </section>
+
+  {%- set defuntiVisibili = defunti.elenco | selectattr("pubblicato") -%}
+  {% if defuntiVisibili | length %}
+  <section class="blocco paradiso" aria-labelledby="t-paradiso">
+    <h2 id="t-paradiso">In Paradiso con il Signore</h2>
+    <ul class="defunti">
+      {%- for d in defuntiVisibili | reverse | primi(3) %}
+      <li>
+        <p class="defunto-nome">{{ d.nome }}</p>
+        <p class="defunto-info">{% if d.eta %}di anni {{ d.eta }}{% endif %}{% if d.contrada %} · {{ d.contrada }}{% endif %}</p>
+        {% if d.veglia %}<p>Veglia: {{ d.veglia }}</p>{% endif %}
+        {% if d.funerale %}<p>Funerale: {{ d.funerale }}</p>{% endif %}
+      </li>
+      {%- endfor %}
+    </ul>
+    <p><a href="/defunti/">Ricordiamo nella preghiera</a></p>
+  </section>
+  {% endif %}
+
+  <section class="blocco" aria-labelledby="t-servizi">
+    <h2 id="t-servizi">Ti serve…</h2>
+    <ul class="scorciatoie">
+      <li><a href="/servizi/prenotazioni/"><strong>Prenotare il campetto o una sala</strong><span>Vedi le disponibilità e manda la richiesta.</span></a></li>
+      <li><a href="/servizi/iscrizioni/"><strong>Iscrivere un figlio</strong><span>Catechesi, CRE, campi scuola.</span></a></li>
+      <li><a href="/parrocchia/sacramenti/"><strong>Un battesimo o un matrimonio</strong><span>Cosa fare, chi contattare, con quanto anticipo.</span></a></li>
+      <li><a href="/servizi/certificati/"><strong>Un certificato</strong><span>Battesimo, cresima, idoneità a fare da padrino.</span></a></li>
+    </ul>
+  </section>
+
+  <section class="blocco rete-blocco" aria-labelledby="t-rete">
+    <div>
+      <h2 id="t-rete">Ricevi gli avvisi senza cercarli</h2>
+      <p>Ogni settimana la NewsLetteRina arriva per email. In alternativa puoi seguire i canali della parrocchia.</p>
+    </div>
+    {% include "parti/rete.njk" %}
+  </section>
+</div>

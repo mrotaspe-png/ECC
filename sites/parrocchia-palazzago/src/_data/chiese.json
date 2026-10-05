@@ -1,0 +1,52 @@
+{
+  "elenco": [
+    {
+      "slug": "san-giovanni-battista",
+      "nome": "Chiesa prepositurale di San Giovanni Battista",
+      "breve": "La chiesa parrocchiale",
+      "localita": "Palazzago",
+      "tappa": 1,
+      "descrizione": "È la chiesa madre della comunità. Custodisce l'organo Serassi e le pale d'altare che raccontano secoli di fede del paese.",
+      "daVedere": [
+        "Organo Serassi",
+        "Pale d'altare",
+        "Battistero"
+      ],
+      "messe": "Sabato 18:00 · Domenica 8:00, 10:30, 18:00",
+      "foto": ""
+    },
+    {
+      "slug": "brocchione",
+      "nome": "Chiesa di Brocchione",
+      "breve": "Chiesa sussidiaria",
+      "localita": "Brocchione",
+      "tappa": 2,
+      "descrizione": "",
+      "daVedere": [],
+      "messe": "Martedì 20:00",
+      "foto": ""
+    },
+    {
+      "slug": "montebello",
+      "nome": "Chiesa di Montebello",
+      "breve": "Chiesa sussidiaria",
+      "localita": "Montebello",
+      "tappa": 3,
+      "descrizione": "",
+      "daVedere": [],
+      "messe": "Giovedì 20:00",
+      "foto": ""
+    },
+    {
+      "slug": "burligo",
+      "nome": "Chiesa di Burligo",
+      "breve": "La comunità di Burligo",
+      "localita": "Burligo",
+      "tappa": 4,
+      "descrizione": "",
+      "daVedere": [],
+      "messe": "Domenica 9:30",
+      "foto": ""
+    }
+  ]
+}
