@@ -1,0 +1,46 @@
+{
+  "elenco": [
+    {
+      "ruolo": "Parroco",
+      "nome": "",
+      "email": "parroco@oratoriopalazzago.it",
+      "telefono": "",
+      "perCosa": "Sacramenti, colloqui personali, benedizioni"
+    },
+    {
+      "ruolo": "Vicario e Oratorio",
+      "nome": "",
+      "email": "oratorio@oratoriopalazzago.it",
+      "telefono": "",
+      "perCosa": "Catechesi, adolescenti, vita dell'oratorio"
+    },
+    {
+      "ruolo": "Segreteria parrocchiale",
+      "nome": "",
+      "email": "segreteria@oratoriopalazzago.it",
+      "telefono": "",
+      "perCosa": "Certificati, iscrizioni, prenotazioni delle sale"
+    },
+    {
+      "ruolo": "CRE",
+      "nome": "",
+      "email": "cre@oratoriopalazzago.it",
+      "telefono": "",
+      "perCosa": "Iscrizioni e informazioni sul CRE estivo"
+    },
+    {
+      "ruolo": "Caritas",
+      "nome": "",
+      "email": "caritas@oratoriopalazzago.it",
+      "telefono": "",
+      "perCosa": "Centro di ascolto, aiuti, volontariato"
+    },
+    {
+      "ruolo": "Sito e comunicazione",
+      "nome": "",
+      "email": "webmaster@oratoriopalazzago.it",
+      "telefono": "",
+      "perCosa": "Errori sul sito, avvisi da pubblicare"
+    }
+  ]
+}

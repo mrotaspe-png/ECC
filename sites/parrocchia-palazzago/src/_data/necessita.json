@@ -1,0 +1,28 @@
+{
+  "elenco": [
+    {
+      "titolo": "Volontari per la castagnata",
+      "tipo": "Tempo",
+      "dettaglio": "Servono 6 persone per cucina e servizio, sabato 18 ottobre dalle 14 alle 19.",
+      "attiva": true
+    },
+    {
+      "titolo": "Un elettricista per un controllo",
+      "tipo": "Competenze",
+      "dettaglio": "Verifica dell'impianto delle aule al primo piano.",
+      "attiva": true
+    },
+    {
+      "titolo": "Generi alimentari a lunga conservazione",
+      "tipo": "Raccolta",
+      "dettaglio": "Olio, tonno, legumi, latte. Si portano in fondo alla chiesa, nel cesto della Caritas.",
+      "attiva": true
+    },
+    {
+      "titolo": "Restauro delle pale d'altare",
+      "tipo": "Donazione",
+      "dettaglio": "Raccolta in corso: si può donare con causale \"Restauro pale\".",
+      "attiva": true
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "elenco": [
+    {
+      "nome": "Nome Cognome (esempio)",
+      "eta": 88,
+      "contrada": "Brocchione",
+      "morte": "2026-10-03",
+      "veglia": "Domenica 4 ottobre, ore 20:00, chiesa di Brocchione",
+      "funerale": "Lunedì 5 ottobre, ore 10:00, chiesa parrocchiale",
+      "pubblicato": true
+    }
+  ]
+}

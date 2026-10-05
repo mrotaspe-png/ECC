@@ -1,0 +1,14 @@
+---
+title: Parroci e curati
+descrizione: I sacerdoti che hanno guidato la comunità, dal 1984 a oggi.
+---
+<ol class="linea-tempo">
+  {%- for p in parroci.elenco %}
+  <li>
+    <p class="anni">{% if p.dal %}{{ p.dal }}{% if p.al %} – {{ p.al }}{% else %} – oggi{% endif %}{% else %}Anni da completare{% endif %}</p>
+    <h3>{{ p.nome }}</h3>
+    {% if p.ruolo %}<p>{{ p.ruolo }}</p>{% endif %}
+    {% if p.nota %}<p>{{ p.nota }}</p>{% endif %}
+  </li>
+  {%- endfor %}
+</ol>

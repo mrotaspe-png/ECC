@@ -1,0 +1,14 @@
+{
+  "anno": 2026,
+  "tema": "",
+  "date": "",
+  "aggiornamenti": [],
+  "menu": [
+    { "giorno": "lunedì", "piatti": "" },
+    { "giorno": "martedì", "piatti": "" },
+    { "giorno": "mercoledì", "piatti": "" },
+    { "giorno": "giovedì", "piatti": "" },
+    { "giorno": "venerdì", "piatti": "" }
+  ],
+  "canzoni": []
+}

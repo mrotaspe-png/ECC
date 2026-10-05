@@ -1,0 +1,15 @@
+---
+title: "La Lettera: archivio"
+descrizione: I quattro numeri dell'anno (Natale, Pasqua, Patrono, Settembre) in PDF.
+---
+<ul class="lettere">
+  {%- for l in lettere.elenco %}
+  <li>
+    {% if l.pdf %}<a class="copertina" href="{{ l.pdf }}">{% else %}<div class="copertina">{% endif %}
+      <span class="testata-lettera">La Lettera</span>
+      <span class="numero">{{ l.numero }} {{ l.anno }}</span>
+      <span class="stato">{{ "PDF" if l.pdf else "in digitalizzazione" }}</span>
+    {% if l.pdf %}</a>{% else %}</div>{% endif %}
+  </li>
+  {%- endfor %}
+</ul>

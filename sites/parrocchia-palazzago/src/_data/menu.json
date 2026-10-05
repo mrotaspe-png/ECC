@@ -1,0 +1,56 @@
+[
+  { "titolo": "Oggi", "url": "/" },
+  {
+    "titolo": "Parrocchia",
+    "url": "/parrocchia/",
+    "sottovoci": [
+      { "titolo": "Orari delle Messe", "url": "/orari/" },
+      { "titolo": "Le nostre chiese", "url": "/parrocchia/chiese/" },
+      { "titolo": "Sacramenti: cosa fare per…", "url": "/parrocchia/sacramenti/" },
+      { "titolo": "Liturgia e canti", "url": "/parrocchia/liturgia/" },
+      { "titolo": "Gruppi e ministeri", "url": "/parrocchia/gruppi/" },
+      { "titolo": "Consigli parrocchiali", "url": "/parrocchia/consigli/" }
+    ]
+  },
+  {
+    "titolo": "Oratorio",
+    "url": "/oratorio/",
+    "sottovoci": [
+      { "titolo": "Spazio Giovani", "url": "/oratorio/giovani/" },
+      { "titolo": "Catechesi", "url": "/oratorio/catechesi/" },
+      { "titolo": "CRE", "url": "/oratorio/cre/" },
+      { "titolo": "Palio delle Contrade", "url": "/oratorio/palio/" },
+      { "titolo": "Sport", "url": "/oratorio/sport/" },
+      { "titolo": "Il Bar", "url": "/oratorio/bar/" }
+    ]
+  },
+  {
+    "titolo": "Carità",
+    "url": "/carita/",
+    "sottovoci": [
+      { "titolo": "Caritas parrocchiale", "url": "/carita/caritas/" },
+      { "titolo": "Come posso aiutare?", "url": "/carita/aiutare/" },
+      { "titolo": "Bilancio aperto", "url": "/carita/bilancio/" }
+    ]
+  },
+  {
+    "titolo": "Storia",
+    "url": "/archivio/",
+    "sottovoci": [
+      { "titolo": "La Lettera: archivio", "url": "/archivio/la-lettera/" },
+      { "titolo": "Parroci e curati", "url": "/archivio/parroci/" },
+      { "titolo": "Le 7 chiese di Palazzago", "url": "/archivio/sette-chiese/" },
+      { "titolo": "Mediateca", "url": "/archivio/mediateca/" }
+    ]
+  },
+  {
+    "titolo": "Servizi",
+    "url": "/servizi/",
+    "sottovoci": [
+      { "titolo": "Prenotazioni spazi", "url": "/servizi/prenotazioni/" },
+      { "titolo": "Iscrizioni e moduli", "url": "/servizi/iscrizioni/" },
+      { "titolo": "Certificati", "url": "/servizi/certificati/" }
+    ]
+  },
+  { "titolo": "Contatti", "url": "/contatti/" }
+]

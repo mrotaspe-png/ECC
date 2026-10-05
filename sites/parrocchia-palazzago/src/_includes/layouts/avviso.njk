@@ -1,0 +1,12 @@
+---
+layout: layouts/pagina.njk
+---
+<p class="occhiello">La LetteRina · {{ page.date | data }}</p>
+{% if pdf %}
+<p class="azioni"><a class="bottone" href="{{ pdf }}" download>Scarica il PDF</a></p>
+<object class="pdf-sfogliabile" data="{{ pdf }}" type="application/pdf">
+  <p>Il tuo dispositivo non mostra il PDF qui: <a href="{{ pdf }}">aprilo a parte</a>.</p>
+</object>
+{% endif %}
+{{ content | safe }}
+<p><a href="/avvisi/">Tutte le settimane</a></p>

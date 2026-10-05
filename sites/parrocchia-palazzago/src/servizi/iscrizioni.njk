@@ -1,0 +1,20 @@
+---
+title: Iscrizioni e moduli
+descrizione: Catechesi, CRE, campi scuola. Dove si può, l'iscrizione si fa online.
+---
+<div class="tabella-scorre">
+<table>
+  <thead><tr><th>Modulo</th><th>Quando</th><th>Online</th><th>Da stampare</th></tr></thead>
+  <tbody>
+  {%- for m in moduli.elenco %}
+    <tr>
+      <td><strong>{{ m.titolo }}</strong></td>
+      <td>{{ m.periodo }}</td>
+      <td>{% if m.online %}<a href="{{ m.online }}">Compila</a>{% else %}<span class="dettaglio">non ancora</span>{% endif %}</td>
+      <td>{% if m.pdf %}<a href="{{ m.pdf }}" download>PDF</a>{% else %}<span class="dettaglio">—</span>{% endif %}</td>
+    </tr>
+  {%- endfor %}
+  </tbody>
+</table>
+</div>
+<p>I moduli su carta si consegnano in segreteria o in oratorio. Per l'uso delle sale vedi le <a href="/servizi/prenotazioni/">prenotazioni</a>.</p>

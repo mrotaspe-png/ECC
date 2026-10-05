@@ -1,0 +1,21 @@
+{
+  "anno": 2025,
+  "aggiornato": "2026-03-31",
+  "entrate": [
+    { "voce": "Offerte durante le Messe", "importo": 48000 },
+    { "voce": "Offerte per sacramenti e benedizioni", "importo": 9500 },
+    { "voce": "Feste e iniziative dell'oratorio", "importo": 21000 },
+    { "voce": "Contributi e donazioni", "importo": 12000 }
+  ],
+  "uscite": [
+    { "voce": "Utenze (luce, gas, acqua)", "importo": 26000 },
+    { "voce": "Manutenzione ordinaria", "importo": 14000 },
+    { "voce": "Rata del mutuo restauri", "importo": 30000 },
+    { "voce": "Attività pastorali e carità", "importo": 11000 },
+    { "voce": "Assicurazioni e tasse", "importo": 7500 }
+  ],
+  "debiti": [
+    { "nome": "Mutuo per il restauro della chiesa parrocchiale", "totale": 300000, "restituito": 120000, "fine": 2032 }
+  ],
+  "comeDonare": "IBAN da inserire · Intestato a Parrocchia San Giovanni Battista, Palazzago"
+}

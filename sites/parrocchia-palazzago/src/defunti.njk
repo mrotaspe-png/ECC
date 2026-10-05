@@ -1,0 +1,21 @@
+---
+title: In Paradiso con il Signore
+descrizione: Ricordiamo nella preghiera i fratelli e le sorelle che ci hanno lasciato.
+---
+<p>Le informazioni su veglie e funerali sono pubblicate d'accordo con le famiglie. Per segnalare una correzione si può scrivere alla <a href="mailto:{{ sito.email }}">segreteria</a>.</p>
+{%- set elenco = defunti.elenco | selectattr("pubblicato") | reverse %}
+{% if elenco | length %}
+<ul class="elenco-voci">
+  {%- for d in elenco %}
+  <li>
+    <h3>{{ d.nome }}</h3>
+    <p class="dettaglio">{% if d.eta %}di anni {{ d.eta }}{% endif %}{% if d.contrada %} · {{ d.contrada }}{% endif %}{% if d.morte %} · tornato/a alla casa del Padre il {{ d.morte | data }}{% endif %}</p>
+    {% if d.veglia %}<p>Veglia di preghiera: {{ d.veglia }}</p>{% endif %}
+    {% if d.funerale %}<p>Funerale: {{ d.funerale }}</p>{% endif %}
+  </li>
+  {%- endfor %}
+</ul>
+{% else %}
+<p class="vuoto">Nessun avviso in questo momento.</p>
+{% endif %}
+<blockquote>L'eterno riposo dona loro, o Signore, e splenda ad essi la luce perpetua. Riposino in pace.</blockquote>

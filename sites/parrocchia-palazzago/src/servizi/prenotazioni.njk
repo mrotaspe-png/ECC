@@ -1,0 +1,49 @@
+---
+title: Prenotare il campetto o una sala
+descrizione: Guarda quando lo spazio è libero, manda la richiesta e ricevi la conferma per email.
+---
+<ol class="passi">
+  <li><strong>Controlla il calendario</strong> qui sotto: le fasce occupate sono già segnate.</li>
+  <li><strong>Compila la richiesta.</strong> Arriva in segreteria e compare nel calendario come "da confermare".</li>
+  <li><strong>Ricevi la conferma</strong> per email, di solito entro due giorni lavorativi, con le indicazioni per le chiavi.</li>
+</ol>
+
+<h2>Gli spazi</h2>
+<ul class="elenco-voci">
+  {%- for s in spazi.elenco %}
+  <li><h3>{{ s.nome }}</h3><p>{{ s.descrizione }}</p><p class="dettaglio">Capienza: {{ s.capienza }} · {{ s.condizioni }}</p></li>
+  {%- endfor %}
+</ul>
+
+<h2>Quando sono liberi</h2>
+{% if sito.calendari.prenotazioni %}
+<iframe class="calendario-incorporato" title="Calendario delle prenotazioni" loading="lazy"
+  src="https://calendar.google.com/calendar/embed?src={{ sito.calendari.prenotazioni | urlencode }}&ctz=Europe%2FRome&hl=it&mode=WEEK&showTitle=0&showPrint=0"></iframe>
+{% else %}
+<p class="da-completare">Qui comparirà il calendario delle prenotazioni, appena collegato.</p>
+{% endif %}
+
+<h2 id="richiesta">La richiesta</h2>
+<form class="modulo" data-modulo="Prenotazione spazio" data-endpoint="{{ sito.moduli.endpoint }}" data-email="{{ sito.moduli.emailRiserva }}"
+  data-grazie="Richiesta ricevuta. Ti scriveremo per confermare la prenotazione.">
+  <p class="campo">
+    <label for="spazio">Quale spazio</label>
+    <select id="spazio" name="spazio" required>
+      <option value="">Scegli…</option>
+      {%- for s in spazi.elenco %}<option value="{{ s.id }}">{{ s.nome }}</option>{% endfor %}
+    </select>
+  </p>
+  <div class="campi-due campi-tre">
+    <p class="campo"><label for="data">Giorno</label><input id="data" name="data" type="date" required></p>
+    <p class="campo"><label for="inizio">Dalle</label><input id="inizio" name="inizio" type="time" step="900" required></p>
+    <p class="campo"><label for="fine">Alle</label><input id="fine" name="fine" type="time" step="900" required></p>
+  </div>
+  <div class="campi-due">
+    <p class="campo"><label for="motivo">Per cosa <span class="aiuto">Compleanno, riunione, partita…</span></label><input id="motivo" name="motivo" required></p>
+    <p class="campo"><label for="persone">Quante persone, circa</label><input id="persone" name="persone" type="number" min="1" inputmode="numeric"></p>
+  </div>
+  {% include "parti/form-campi-persona.njk" %}
+  <p class="campo"><label for="note">Note <span class="aiuto">Facoltativo</span></label><textarea id="note" name="note"></textarea></p>
+  <p class="campo-check"><label><input type="checkbox" name="regolamento" required> <span>Mi impegno a lasciare lo spazio pulito e in ordine e a rispettare gli orari.</span></label></p>
+  {% include "parti/form-fondo.njk" %}
+</form>

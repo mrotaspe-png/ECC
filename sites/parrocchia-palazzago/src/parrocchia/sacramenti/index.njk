@@ -1,0 +1,9 @@
+---
+title: "Sacramenti: cosa fare per…"
+descrizione: Chi contattare, con quanto anticipo, quali documenti servono.
+---
+<ul class="elenco-voci">
+  {%- for s in collections.all | sort(false, false, "data.ordine") %}{% if s.data.sacramento %}
+  <li><h3><a href="{{ s.url }}">{{ s.data.title }}</a></h3><p>{{ s.data.descrizione }}</p></li>
+  {%- endif %}{% endfor %}
+</ul>

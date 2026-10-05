@@ -1,0 +1,16 @@
+---
+title: La LetteRina
+descrizione: Il foglio degli avvisi della settimana, da leggere qui o scaricare in PDF.
+permalink: /avvisi/
+layout: layouts/pagina.njk
+eleventyExcludeFromCollections: true
+---
+<ul class="elenco-voci">
+  {%- for a in collections.avvisi %}
+  <li>
+    <h3><a href="{{ a.url }}">Settimana del {{ a.date | data }}</a></h3>
+    {% if a.data.sommario %}<p>{{ a.data.sommario }}</p>{% endif %}
+    {% if a.data.pdf %}<p class="dettaglio"><a href="{{ a.data.pdf }}" download>PDF</a></p>{% endif %}
+  </li>
+  {%- endfor %}
+</ul>

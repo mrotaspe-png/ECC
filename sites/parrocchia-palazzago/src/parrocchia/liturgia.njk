@@ -1,0 +1,27 @@
+---
+title: Liturgia e canti
+descrizione: Le letture della domenica e i canti scelti per la Messa, per il coro e per tutti.
+---
+<p class="occhiello">Domenica {{ liturgia.domenica | data }}</p>
+<h2>{{ liturgia.celebrazione }}</h2>
+
+<h3>Letture</h3>
+<ul>
+  {%- for l in liturgia.letture %}
+  <li><strong>{{ l.tipo }}</strong>{% if l.riferimento %}: {{ l.riferimento }}{% endif %}</li>
+  {%- endfor %}
+</ul>
+<p>Il testo completo delle letture è sul <a href="{{ liturgia.linkLetture }}">sito della Chiesa cattolica italiana</a>.</p>
+
+<h3>Canti</h3>
+<div class="tabella-scorre">
+<table>
+  <thead><tr><th>Momento</th><th>Canto</th><th>Libro / numero</th></tr></thead>
+  <tbody>
+  {%- for c in liturgia.canti %}
+    <tr><td>{{ c.momento }}</td><td>{{ c.titolo or "da definire" }}</td><td>{{ c.libro }}</td></tr>
+  {%- endfor %}
+  </tbody>
+</table>
+</div>
+<p class="nota">Pubblichiamo titoli e numeri dei canti, non i testi, che sono coperti da diritti d'autore.</p>

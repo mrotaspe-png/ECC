@@ -1,0 +1,11 @@
+---
+title: Le 7 chiese di Palazzago
+descrizione: Un percorso storico, artistico e religioso tra le chiese del territorio.
+---
+<p>Le tappe si possono fare a piedi in una giornata. Ogni scheda dice cosa guardare e quando la chiesa è aperta.</p>
+<ol class="passi">
+  {%- for c in chiese.elenco | sort(false, false, "tappa") %}
+  <li><h3><a href="/parrocchia/chiese/{{ c.slug }}/">{{ c.nome }}</a></h3><p class="dettaglio">{{ c.localita }}</p></li>
+  {%- endfor %}
+</ol>
+{% if chiese.elenco | length < 7 %}<p class="da-completare">Mancano ancora {{ 7 - (chiese.elenco | length) }} chiese: si aggiungono nel file delle chiese.</p>{% endif %}

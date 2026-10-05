@@ -1,0 +1,25 @@
+---
+title: Chi contattare
+descrizione: A chi scrivere per ogni cosa, così la tua richiesta arriva subito alla persona giusta.
+---
+<ul class="elenco-voci">
+  {%- for c in contatti.elenco %}
+  <li>
+    <h3>{{ c.ruolo }}{% if c.nome %} · {{ c.nome }}{% endif %}</h3>
+    <p class="dettaglio">{{ c.perCosa }}</p>
+    <p><a href="mailto:{{ c.email }}">{{ c.email }}</a>{% if c.telefono %} · <a href="tel:{{ c.telefono | replace(' ', '') }}">{{ c.telefono }}</a>{% endif %}</p>
+  </li>
+  {%- endfor %}
+</ul>
+
+<h2>Segreteria parrocchiale</h2>
+<p>{{ sito.indirizzo }}<br>Aperta {{ sito.orariSegreteria | lower }}<br>Tel. <a href="tel:{{ sito.telefono | replace(' ', '') }}">{{ sito.telefono }}</a></p>
+
+<h2 id="rete">Unisciti alla rete</h2>
+<p>La <strong>NewsLetteRina</strong> porta gli avvisi della settimana nella tua casella email, una volta a settimana. Ci si cancella con un clic.</p>
+{% if sito.social.newsletter %}
+<p><a class="bottone" href="{{ sito.social.newsletter }}">Iscriviti alla NewsLetteRina</a></p>
+{% else %}
+<p class="da-completare">Il modulo di iscrizione (Brevo) sarà collegato qui.</p>
+{% endif %}
+{% include "parti/rete.njk" %}

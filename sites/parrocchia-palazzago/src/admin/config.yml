@@ -1,0 +1,358 @@
+# Pannello di modifica del sito (Decap CMS).
+# Ogni voce qui sotto è una scheda del pannello. I campi corrispondono ai file in src/_data.
+
+backend:
+  name: git-gateway
+  branch: main
+
+locale: it
+site_url: https://www.oratoriopalazzago.it
+media_folder: src/assets/documenti
+public_folder: /assets/documenti
+publish_mode: simple
+
+collections:
+  - name: avvisi
+    label: "Avvisi (LetteRina)"
+    label_singular: "settimana"
+    folder: src/avvisi
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}"
+    sortable_fields: ["date"]
+    fields:
+      - { label: "Titolo", name: "title", widget: string, default: "Avvisi della settimana" }
+      - { label: "Domenica di riferimento", name: "date", widget: datetime, time_format: false, date_format: "DD/MM/YYYY", format: "YYYY-MM-DD" }
+      - { label: "Riassunto in una riga", name: "sommario", widget: string, hint: "Compare nella pagina Oggi" }
+      - { label: "PDF della LetteRina", name: "pdf", widget: file, required: false }
+      - { label: "Testo degli avvisi", name: "body", widget: markdown }
+
+  - name: giovani
+    label: "Spazio Giovani"
+    label_singular: "articolo"
+    folder: src/oratorio/giovani
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Titolo", name: "title", widget: string }
+      - { label: "Data", name: "date", widget: datetime, time_format: false, date_format: "DD/MM/YYYY", format: "YYYY-MM-DD" }
+      - { label: "Autore", name: "autore", widget: string, required: false, hint: "Nome o iniziali" }
+      - { label: "In breve", name: "descrizione", widget: string, required: false }
+      - { label: "Testo", name: "body", widget: markdown }
+
+  - name: dati
+    label: "Orari, calendario e avvisi rapidi"
+    editor: { preview: false }
+    files:
+      - name: orari
+        label: "Orari Messe e confessioni"
+        file: src/_data/orari.json
+        fields:
+          - { label: "Nota", name: "nota", widget: hidden }
+          - label: "Messe"
+            name: messe
+            widget: list
+            summary: "{{fields.giorno}} {{fields.ora}} · {{fields.luogo}}"
+            fields:
+              - { label: "Giorno", name: giorno, widget: select, options: ["domenica", "lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato"] }
+              - { label: "Ora (es. 18:00)", name: ora, widget: string, pattern: ['^\d{1,2}[:.]\d{2}$', "Scrivi l'ora come 18:00"] }
+              - { label: "Dove", name: luogo, widget: string }
+              - { label: "Nota (es. prefestiva)", name: nota, widget: string, required: false }
+          - label: "Confessioni"
+            name: confessioni
+            widget: list
+            fields:
+              - { label: "Giorno", name: giorno, widget: string }
+              - { label: "Orario", name: ora, widget: string }
+              - { label: "Dove", name: luogo, widget: string, required: false }
+          - label: "Variazioni temporanee"
+            name: variazioni
+            widget: list
+            hint: "Compaiono in evidenza solo tra le due date"
+            fields:
+              - { label: "Dal", name: dal, widget: datetime, time_format: false, format: "YYYY-MM-DD", date_format: "DD/MM/YYYY" }
+              - { label: "Al", name: al, widget: datetime, time_format: false, format: "YYYY-MM-DD", date_format: "DD/MM/YYYY" }
+              - { label: "Testo", name: testo, widget: text }
+
+      - name: eventi
+        label: "Appuntamenti del calendario"
+        file: src/_data/eventi.json
+        fields:
+          - label: "Appuntamenti"
+            name: elenco
+            widget: list
+            summary: "{{fields.data}} · {{fields.titolo}}"
+            fields:
+              - { label: "Data", name: data, widget: datetime, time_format: false, format: "YYYY-MM-DD", date_format: "DD/MM/YYYY" }
+              - { label: "Ora", name: ora, widget: string, required: false }
+              - { label: "Titolo", name: titolo, widget: string }
+              - { label: "Dove", name: luogo, widget: string, required: false }
+              - { label: "Di chi è", name: ambito, widget: select, options: [{ label: "Parrocchia", value: parrocchia }, { label: "Oratorio", value: oratorio }] }
+
+      - name: defunti
+        label: "In Paradiso con il Signore"
+        file: src/_data/defunti.json
+        fields:
+          - label: "Defunti"
+            name: elenco
+            widget: list
+            hint: "Pubblicare solo con il consenso della famiglia"
+            summary: "{{fields.nome}}"
+            fields:
+              - { label: "Nome e cognome", name: nome, widget: string }
+              - { label: "Età", name: eta, widget: number, required: false }
+              - { label: "Contrada", name: contrada, widget: string, required: false }
+              - { label: "Data della morte", name: morte, widget: datetime, time_format: false, format: "YYYY-MM-DD", date_format: "DD/MM/YYYY" }
+              - { label: "Veglia", name: veglia, widget: string, required: false }
+              - { label: "Funerale", name: funerale, widget: string, required: false }
+              - { label: "Visibile sul sito", name: pubblicato, widget: boolean, default: true }
+
+      - name: liturgia
+        label: "Liturgia e canti della domenica"
+        file: src/_data/liturgia.json
+        fields:
+          - { label: "Domenica", name: domenica, widget: datetime, time_format: false, format: "YYYY-MM-DD", date_format: "DD/MM/YYYY" }
+          - { label: "Celebrazione", name: celebrazione, widget: string }
+          - { label: "Link alle letture", name: linkLetture, widget: string }
+          - label: "Letture"
+            name: letture
+            widget: list
+            fields:
+              - { label: "Tipo", name: tipo, widget: string }
+              - { label: "Riferimento (es. Mc 10,17-30)", name: riferimento, widget: string, required: false }
+          - label: "Canti"
+            name: canti
+            widget: list
+            fields:
+              - { label: "Momento", name: momento, widget: string }
+              - { label: "Titolo", name: titolo, widget: string, required: false }
+              - { label: "Libro / numero", name: libro, widget: string, required: false }
+
+  - name: oratorio
+    label: "Oratorio"
+    editor: { preview: false }
+    files:
+      - name: cre
+        label: "CRE"
+        file: src/_data/cre.json
+        fields:
+          - { label: "Anno", name: anno, widget: number }
+          - { label: "Tema", name: tema, widget: string, required: false }
+          - { label: "Date", name: date, widget: string, required: false, hint: "es. dal 15 giugno al 10 luglio" }
+          - label: "Aggiornamenti del giorno"
+            name: aggiornamenti
+            widget: list
+            fields:
+              - { label: "Giorno", name: data, widget: datetime, time_format: false, format: "YYYY-MM-DD", date_format: "DD/MM/YYYY" }
+              - { label: "Testo", name: testo, widget: text }
+          - label: "Menu della mensa"
+            name: menu
+            widget: list
+            fields:
+              - { label: "Giorno", name: giorno, widget: string }
+              - { label: "Piatti", name: piatti, widget: string, required: false }
+          - label: "Canzoni"
+            name: canzoni
+            widget: list
+            fields:
+              - { label: "Titolo", name: titolo, widget: string }
+              - { label: "Link (video o testo)", name: link, widget: string, required: false }
+      - name: bar
+        label: "Bar dell'oratorio"
+        file: src/_data/bar.json
+        fields:
+          - label: "Orari"
+            name: orari
+            widget: list
+            fields:
+              - { label: "Giorni", name: giorni, widget: string }
+              - { label: "Ore", name: ore, widget: string }
+          - { label: "Nota", name: nota, widget: text }
+
+  - name: comunita
+    label: "Comunità e servizi"
+    editor: { preview: false }
+    files:
+      - name: necessita
+        label: "Come posso aiutare?"
+        file: src/_data/necessita.json
+        fields:
+          - label: "Necessità"
+            name: elenco
+            widget: list
+            summary: "{{fields.titolo}}"
+            fields:
+              - { label: "Titolo", name: titolo, widget: string }
+              - { label: "Tipo", name: tipo, widget: select, options: ["Tempo", "Competenze", "Raccolta", "Donazione"] }
+              - { label: "Dettaglio", name: dettaglio, widget: text }
+              - { label: "Ancora attuale", name: attiva, widget: boolean, default: true }
+      - name: gruppi
+        label: "Gruppi e ministeri"
+        file: src/_data/gruppi.json
+        fields:
+          - label: "Gruppi"
+            name: elenco
+            widget: list
+            summary: "{{fields.nome}}"
+            fields:
+              - { label: "Nome", name: nome, widget: string }
+              - { label: "Cosa fa", name: cosaFa, widget: text }
+              - { label: "Quando", name: quando, widget: string }
+              - { label: "Referente", name: referente, widget: string, required: false }
+      - name: contatti
+        label: "Contatti"
+        file: src/_data/contatti.json
+        fields:
+          - label: "Contatti"
+            name: elenco
+            widget: list
+            summary: "{{fields.ruolo}}"
+            fields:
+              - { label: "Ruolo", name: ruolo, widget: string }
+              - { label: "Nome", name: nome, widget: string, required: false }
+              - { label: "Email", name: email, widget: string }
+              - { label: "Telefono", name: telefono, widget: string, required: false }
+              - { label: "Per cosa", name: perCosa, widget: string }
+      - name: spazi
+        label: "Spazi prenotabili"
+        file: src/_data/spazi.json
+        fields:
+          - label: "Spazi"
+            name: elenco
+            widget: list
+            summary: "{{fields.nome}}"
+            fields:
+              - { label: "Codice (senza spazi)", name: id, widget: string }
+              - { label: "Nome", name: nome, widget: string }
+              - { label: "Capienza", name: capienza, widget: string }
+              - { label: "Descrizione", name: descrizione, widget: string }
+              - { label: "Condizioni", name: condizioni, widget: string }
+      - name: moduli
+        label: "Moduli di iscrizione"
+        file: src/_data/moduli.json
+        fields:
+          - label: "Moduli"
+            name: elenco
+            widget: list
+            summary: "{{fields.titolo}}"
+            fields:
+              - { label: "Titolo", name: titolo, widget: string }
+              - { label: "Periodo", name: periodo, widget: string }
+              - { label: "Link al modulo online", name: online, widget: string, required: false }
+              - { label: "PDF da stampare", name: pdf, widget: file, required: false }
+      - name: bilancio
+        label: "Bilancio aperto"
+        file: src/_data/bilancio.json
+        fields:
+          - { label: "Anno", name: anno, widget: number }
+          - { label: "Aggiornato al", name: aggiornato, widget: datetime, time_format: false, format: "YYYY-MM-DD", date_format: "DD/MM/YYYY" }
+          - label: "Entrate"
+            name: entrate
+            widget: list
+            fields:
+              - { label: "Voce", name: voce, widget: string }
+              - { label: "Importo in euro", name: importo, widget: number }
+          - label: "Uscite"
+            name: uscite
+            widget: list
+            fields:
+              - { label: "Voce", name: voce, widget: string }
+              - { label: "Importo in euro", name: importo, widget: number }
+          - label: "Debiti e mutui"
+            name: debiti
+            widget: list
+            fields:
+              - { label: "Nome", name: nome, widget: string }
+              - { label: "Totale", name: totale, widget: number }
+              - { label: "Già restituito", name: restituito, widget: number }
+              - { label: "Anno dell'ultima rata", name: fine, widget: number, required: false }
+          - { label: "Come donare (IBAN)", name: comeDonare, widget: text }
+
+  - name: storia
+    label: "Chiese e storia"
+    editor: { preview: false }
+    files:
+      - name: chiese
+        label: "Chiese"
+        file: src/_data/chiese.json
+        fields:
+          - label: "Chiese"
+            name: elenco
+            widget: list
+            summary: "{{fields.tappa}}. {{fields.nome}}"
+            fields:
+              - { label: "Indirizzo della pagina (es. montebello)", name: slug, widget: string }
+              - { label: "Nome", name: nome, widget: string }
+              - { label: "In breve", name: breve, widget: string }
+              - { label: "Località", name: localita, widget: string }
+              - { label: "Tappa del percorso", name: tappa, widget: number }
+              - { label: "Descrizione", name: descrizione, widget: text, required: false }
+              - { label: "Da vedere", name: daVedere, widget: list, required: false }
+              - { label: "Messe", name: messe, widget: string, required: false }
+              - { label: "Foto", name: foto, widget: image, required: false }
+      - name: parroci
+        label: "Parroci e curati"
+        file: src/_data/parroci.json
+        fields:
+          - label: "Sacerdoti"
+            name: elenco
+            widget: list
+            summary: "{{fields.nome}}"
+            fields:
+              - { label: "Nome", name: nome, widget: string }
+              - { label: "Ruolo", name: ruolo, widget: string, required: false }
+              - { label: "Dal (anno)", name: dal, widget: number, required: false }
+              - { label: "Al (anno, vuoto se ancora in carica)", name: al, widget: number, required: false }
+              - { label: "Nota", name: nota, widget: text, required: false }
+      - name: lettere
+        label: "La Lettera (archivio)"
+        file: src/_data/lettere.json
+        fields:
+          - label: "Numeri"
+            name: elenco
+            widget: list
+            summary: "{{fields.numero}} {{fields.anno}}"
+            fields:
+              - { label: "Anno", name: anno, widget: number }
+              - { label: "Numero", name: numero, widget: select, options: ["Natale", "Pasqua", "San Giovanni (Patrono)", "Settembre"] }
+              - { label: "PDF", name: pdf, widget: file, required: false }
+
+  - name: impostazioni
+    label: "Impostazioni"
+    editor: { preview: false }
+    files:
+      - name: sito
+        label: "Dati generali e collegamenti"
+        file: src/_data/sito.json
+        fields:
+          - { label: "Nome", name: nome, widget: string }
+          - { label: "Paese", name: luogo, widget: string }
+          - { label: "Sottotitolo", name: sottotitolo, widget: string }
+          - { label: "Diocesi", name: diocesi, widget: string }
+          - { label: "Indirizzo del sito", name: url, widget: string }
+          - { label: "Indirizzo", name: indirizzo, widget: string }
+          - { label: "Telefono", name: telefono, widget: string }
+          - { label: "Email", name: email, widget: string }
+          - { label: "Orari segreteria", name: orariSegreteria, widget: string }
+          - { label: "Mostra la striscia 'dati di esempio'", name: datiDiEsempio, widget: boolean }
+          - label: "Canali"
+            name: social
+            widget: object
+            fields:
+              - { label: "Canale WhatsApp", name: whatsapp, widget: string, required: false }
+              - { label: "Canale Telegram", name: telegram, widget: string, required: false }
+              - { label: "Telegram ragazzi / CRE", name: telegramRagazzi, widget: string, required: false }
+              - { label: "Instagram", name: instagram, widget: string, required: false }
+              - { label: "Iscrizione newsletter (Brevo)", name: newsletter, widget: string, required: false }
+          - label: "Google Calendar"
+            name: calendari
+            widget: object
+            fields:
+              - { label: "ID calendario della comunità", name: comunita, widget: string, required: false }
+              - { label: "ID calendario prenotazioni", name: prenotazioni, widget: string, required: false }
+          - label: "Moduli online"
+            name: moduli
+            widget: object
+            fields:
+              - { label: "Indirizzo webhook (Make.com)", name: endpoint, widget: string, required: false }
+              - { label: "Email se il webhook manca", name: emailRiserva, widget: string }
+          - { label: "Galleria foto (Piwigo)", name: mediateca, widget: string, required: false }

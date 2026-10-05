@@ -1,0 +1,6 @@
+{%- set sez = page.url | sezioneDi(menu) -%}
+<ul class="elenco-voci">
+  {%- for voce in sez.sottovoci %}
+  <li><h3><a href="{{ voce.url }}">{{ voce.titolo }}</a></h3>{% if descrizioni and descrizioni[voce.url] %}<p>{{ descrizioni[voce.url] }}</p>{% endif %}</li>
+  {%- endfor %}
+</ul>

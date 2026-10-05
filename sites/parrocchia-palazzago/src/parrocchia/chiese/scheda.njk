@@ -1,0 +1,24 @@
+---
+pagination:
+  data: chiese.elenco
+  size: 1
+  alias: chiesa
+permalink: "/parrocchia/chiese/{{ chiesa.slug }}/"
+eleventyComputed:
+  title: "{{ chiesa.nome }}"
+  descrizione: "{{ chiesa.localita }} · {{ chiesa.breve }}"
+---
+{% if chiesa.foto %}<p><img src="{{ chiesa.foto }}" alt="{{ chiesa.nome }}"></p>{% endif %}
+{% if chiesa.descrizione %}<p>{{ chiesa.descrizione }}</p>{% else %}{% include "parti/da-completare.njk" %}{% endif %}
+
+{% if chiesa.daVedere | length %}
+<h2>Da vedere</h2>
+<ul>{% for cosa in chiesa.daVedere %}<li>{{ cosa }}</li>{% endfor %}</ul>
+{% endif %}
+
+{% if chiesa.messe %}
+<h2>Messe</h2>
+<p>{{ chiesa.messe }}. <a href="/orari/">Orari completi</a></p>
+{% endif %}
+
+<p><a href="/archivio/sette-chiese/">Il percorso delle 7 chiese di Palazzago</a></p>

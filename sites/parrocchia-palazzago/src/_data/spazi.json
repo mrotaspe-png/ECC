@@ -1,0 +1,32 @@
+{
+  "elenco": [
+    {
+      "id": "campetto",
+      "nome": "Campetto polifunzionale",
+      "capienza": "2 squadre",
+      "descrizione": "Calcetto, pallavolo e basket. Illuminato la sera.",
+      "condizioni": "Su prenotazione a fasce di un'ora."
+    },
+    {
+      "id": "salone",
+      "nome": "Salone dell'oratorio",
+      "capienza": "80 persone",
+      "descrizione": "Con tavoli, sedie e cucina attigua.",
+      "condizioni": "Feste di compleanno, pranzi di gruppo, incontri."
+    },
+    {
+      "id": "sala-camino",
+      "nome": "Sala del camino",
+      "capienza": "25 persone",
+      "descrizione": "Sala raccolta per riunioni e piccoli incontri.",
+      "condizioni": "Riunioni di gruppi e associazioni."
+    },
+    {
+      "id": "aula",
+      "nome": "Aule di catechismo",
+      "capienza": "15 persone ciascuna",
+      "descrizione": "Aule al primo piano dell'oratorio.",
+      "condizioni": "Solo per attività educative."
+    }
+  ]
+}

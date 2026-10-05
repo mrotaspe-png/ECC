@@ -1,0 +1,18 @@
+---
+title: Come posso aiutare?
+descrizione: Le cose che servono adesso alla parrocchia. Anche un'ora conta.
+---
+{%- set attive = necessita.elenco | selectattr("attiva") -%}
+<ul class="elenco-voci">
+  {%- for n in attive %}
+  <li>
+    <span class="etichetta">{{ n.tipo }}</span>
+    <h3>{{ n.titolo }}</h3>
+    <p>{{ n.dettaglio }}</p>
+  </li>
+  {%- endfor %}
+</ul>
+<p>Per dare la tua disponibilità scrivi alla <a href="mailto:{{ sito.email }}?subject=Posso%20aiutare">segreteria</a>, dicendo in cosa vorresti aiutare.</p>
+<h2>Donazioni</h2>
+<p>{{ bilancio.comeDonare }}</p>
+<p>Alcune donazioni danno diritto a benefici fiscali, altre no: chiedete in segreteria quale forma conviene.</p>
